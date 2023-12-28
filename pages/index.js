@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import Map from "@/components/Map";
 const getDors = async () => {
   try {
     const res = await fetch("http://localhost:3000/api/dormitory", {
@@ -39,6 +40,8 @@ export default function Home() {
             alt="img"
           />
         </div>
+        <h1>hi</h1>
+        test
         <div className={styles.map}>
           <div className={styles.mapfunction}>
             <div></div>
@@ -78,9 +81,7 @@ export default function Home() {
             <div></div>
           </div>
 
-          <div className={styles.mapclass}>
-           {/* map is here */}
-            </div>
+          <div className={styles.mapclass}><Map/></div>
         </div>
 
         <div className={styles.room_function}>
@@ -96,20 +97,16 @@ export default function Home() {
         <div className={styles.roomcomponents}>
           <h1>Room components</h1>
 
-         {
-          JSON.stringify(dors)
-         }
+          {JSON.stringify(dors)}
         </div>
 
         <div>room recomment</div>
         <Link href="/testpage">
-          a
-          <h1>WEB TEST</h1>
+          a<h1>WEB TEST</h1>
         </Link>
         <hr />
         <Link href="/pages/test2">
-         d
-          <h1>POST TEST</h1>
+          d<h1>POST TEST</h1>
         </Link>
       </div>
     </div>
