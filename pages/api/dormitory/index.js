@@ -13,6 +13,6 @@ export default async function handler(req, res) {
   if (req.method === "GET") {
     await connectMongoDB();
     const dormitory = await Dors.findOne({ _id: id });
-    return res.json({ dormitory });
+    return res.json(dormitory);
   }
 }

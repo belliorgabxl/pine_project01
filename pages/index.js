@@ -9,7 +9,6 @@ const getDors = async () => {
     const res = await fetch("http://localhost:3000/api/dormitory", {
       cache: "no-store",
     });
-
     if (!res.ok) {
       throw new Error("Failed to fetch topics");
     } else {
@@ -22,7 +21,7 @@ const getDors = async () => {
 };
 
 export default function Home() {
-  const [dors, setDors] = useState();
+  const [dors, setDors] = useState(null);
   useEffect(() => {
     getDors().then((d) => {
       setDors(d);
@@ -79,7 +78,9 @@ export default function Home() {
             <div></div>
           </div>
 
-          <div className={styles.mapclass}><Map/></div>
+          <div className={styles.mapclass}>
+            <Map />
+          </div>
         </div>
 
         <div className={styles.room_function}>
@@ -94,8 +95,40 @@ export default function Home() {
 
         <div className={styles.roomcomponents}>
           <h1>Room components</h1>
+          {/* {[
+            {
+              name: "hor1",
+              id: "aiosdfjdsiaf",
+              aisdfjsdi: "jisdofdio",
+              accomodations: ["hot_water", "car_park"],
+              price_range: "3000-7000",
+            },
+            {
+              name: "hor2",
+              id: "asidofj",
+              aisdfjdsa: "iasdfjoidsa",
+              accomodations: ["bike_park", "water_refiller"],
+              description:
+                "UUt quis cillum veniam do sit sunt irure nulla cupidatat proident duis do eiusmod qui. Do officia ullamco ut. Anim magna deserunt exercitation Lorem enim officia incididunt deserunt. Officia qui ex magna occaecat culpa deserunt irure est consectetur deserunt magna. Culpa sint ipsum culpa magna ad ullamco ex eu anim. Laborum laborum sint consequat.Ut quis cillum veniam do sit sunt irure nulla cupidatat proident duis do eiusmod qui. Do officia ullamco ut. Anim magna deserunt exercitation Lorem enim officia incididunt deserunt. Officia qui ex magna occaecat culpa deserunt irure est consectetur deserunt magna. Culpa sint ipsum culpa magna ad ullamco ex eu anim. Laborum laborum sint consequat.Ut quis cillum veniam do sit sunt irure nulla cupidatat proident duis do eiusmod qui. Do officia ullamco ut. Anim magna deserunt exercitation Lorem enim officia incididunt deserunt. Officia qui ex magna occaecat culpa deserunt irure est consectetur deserunt magna. Culpa sint ipsum culpa magna ad ullamco ex eu anim. Laborum laborum sint consequat.t quis cillum veniam do sit sunt irure nulla cupidatat proident duis do eiusmod qui. Do officia ullamco ut. Anim magna deserunt exercitation Lorem enim officia incididunt deserunt. Officia qui ex magna occaecat culpa deserunt irure est consectetur deserunt magna. Culpa sint ipsum culpa magna ad ullamco ex eu anim. Laborum laborum sint consequat.",
+              price_range: "4000-5000",
+            },
+          ].map((hor) => {
+            return (
+              <div className="">
+                {hor.name} | {hor.price_range} Baht
+                <div style={{overflow: hidden, textOverflow: 'ellipsis', whiteSpace: nowrap}}>
+                {hor.description}
+                </div>
+                {hor.accomodations.map((acc) => (
+                  <div style={{}}>{acc}</div>
+                ))}
+              </div>
+            );
+            // return  hor.name
+          })}
+          {(dors).map} */}
 
-          {JSON.stringify(dors)}
+          {dors?.dormitory?.map((d) => <div>{d.location}</div>)}
         </div>
 
         <div>room recomment</div>
