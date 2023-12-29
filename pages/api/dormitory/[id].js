@@ -17,4 +17,4 @@ export default async function handler(req, res) {
     const dormitory = await Dors.findOne({ _id: id });
     return res.status(200).json({ dormitory });
   }
-}
+} 
